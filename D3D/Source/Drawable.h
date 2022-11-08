@@ -169,14 +169,6 @@ void IDrawableChild<Tp>::Update(float dt) noexcept
 template<typename Tp>
 Matrix4x4 IDrawableChild<Tp>::GetTransform() noexcept
 {
-	/*const DirectX::XMMATRIX LocalRotation = DirectX::XMMatrixRotationX(m_Position.X) *
-											DirectX::XMMatrixRotationY(m_Position.Y) *
-											DirectX::XMMatrixRotationZ(m_Position.Z);
-	const DirectX::XMMATRIX WorldRotation = DirectX::XMMatrixRotationX(m_Rotation.X) *
-											DirectX::XMMatrixRotationY(-m_Rotation.Y) *
-											DirectX::XMMatrixRotationZ(m_Rotation.Z);
-
-	return LocalRotation * DirectX::XMMatrixTranslation(m_Radius.X, m_Radius.Y, m_Radius.Z) * WorldRotation;*/
 	return DirectX::XMMatrixRotationRollPitchYaw(m_Position.X, m_Position.Y, m_Position.Z) *
 		   DirectX::XMMatrixTranslation(m_Radius.X, m_Radius.Y, m_Radius.Z) *
 		   DirectX::XMMatrixRotationRollPitchYaw(m_Rotation.X, m_Rotation.Y, m_Rotation.Z);
